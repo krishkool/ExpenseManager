@@ -1,2 +1,2 @@
 # ExpenseManager
-Project Expense Manager  in Django framework using authentication
+Project Expense Manager  in Django framework with user authentication
