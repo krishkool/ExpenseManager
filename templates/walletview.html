@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" style="padding: 3rem 0 0 0;">
+            <div class="alert alert-info">ADD BALANCE</div>
+            <div class="addbal-form">
+                <form action="addbalance" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="bal-amt" placeholder="Enter Amount">
+                    </div>
+                    
+                    <input type="submit" class="btn btn-success" value="ADD">
+                </form>
+                <div class="result" style="color: #B94629; font-size: 18px; padding-left: 25rem;">{{msg}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="padding: 3rem 5rem;">
+                <div class=""><a href= "{% url 'home' %}" style="text-decoration: none;">HOME</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10" style="padding: 3rem 0 0 0;">
+            <div class="alert alert-info">WALLET BALANCE</div>
+            <div class="addbal-form">
+                <form action="showbalance" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="bal-amt" value="{{balance}}" placeholder="">
+                    </div>
+                    
+                    <input type="submit" class="btn btn-danger" value="balance">
+                </form>
+                <div class="result" style="color: #B94629; font-size: 18px; padding-left: 25rem;">{{msg1}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" style="padding: 3rem 0 0 0;">
+            <div class="alert alert-info">EXPENSE HISTORY</div>
+            <div class="expensehistory-form">
+                <form action="showexpense" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-warning" value="DISPLAY">
+                    </div>
+                </form>
+            </div>
+            <div class="expense-table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>EXPENSE NAME</th>
+                            <th>EXPENSE AMOUNT</th>
+                            <th>EXPENSE DESCRIPTION</th>
+                            <th>EXPENSE DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.Name}}</td>
+                            <td>{{i.Amount}}</td>
+                            <td>{{i.Description}}</td>
+                            <td>{{i.Date}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <label for="totexp">TOTAL EXPENSE</label>
+                    <input type="text" class="form-control" value="{{val}}">
+                </div>
+                <div class="result" style="color: #B94629; font-size: 18px; padding-left: 25rem;">{{msg}}</div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="padding: 3rem 5rem;">
+                <div class=""><a href= "{% url 'home' %}" style="text-decoration: none;">HOME</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

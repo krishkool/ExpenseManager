@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" style="padding: 3rem 0 0 0;">
+            <div class="alert alert-info">ADD EXPENSE</div>
+            <div class="add-form">
+                <form action="addexpensedata" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="exp-name" placeholder="Expense Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="exp-amt" placeholder="Expense Amount">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="exp-desc" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" name="exp-date">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="ADD">
+                </form>
+                <div class="result" style="color: #B94629; font-size: 18px; padding-left: 25rem;">{{fail}}{{success}}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="padding: 3rem 5rem;">
+                <div class=""><a href= "{% url 'home' %}" style="text-decoration: none;">HOME</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

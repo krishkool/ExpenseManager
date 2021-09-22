@@ -1,0 +1,40 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE MANAGER</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body style="letter-spacing: 0.2rem;">
+    
+    <nav class="navbar" style="background: #B94629; height: 22vh; ">
+            <a class="navbar-brand" href="{% url 'home' %} " style="text-decoration: none; font-size: 35px; font-weight: 600; color: white; letter-spacing: 0.5rem;">
+                <!-- <img src="{% static 'expApp/images/logo.png' %}" alt="logo" style="width: 100px; height: 100px;"> -->
+              EXPENSE MANAGER
+            </a>
+
+            <div class="menu" style="margin-top: 1rem;  text-transform: uppercase; font-size: 18px; justify-content: center;">
+                <ul class="">
+                <li style="display: inline; padding-right: 20px; letter-spacing: 0.3rem;"><a href = {% url 'viewexpense' %} style="text-decoration: none; color: white;">AddExpense</a></li>
+                <li style="display: inline; padding-right: 20px; letter-spacing: 0.3rem;"><a href = {% url 'viewwallet' %} style="text-decoration: none; color: white;">Wallet </a></li>
+                <li style="display: inline; padding-right: 20px; letter-spacing: 0.3rem;"><a href = {% url 'viewtotexpense' %} style="text-decoration: none; color: white;">ShowExpense</a></li>
+                <form action="logout"  style="display: inline;">
+                    
+                <input type="submit" value="LOG-OUT" class="btn btn-dark">
+                </form>
+                </ul>
+            </div>
+    </nav>
+  
+            
+    {% block content  %}
+
+    {% endblock %}
+</body>
+</html>
